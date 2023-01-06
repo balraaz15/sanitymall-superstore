@@ -4,4 +4,9 @@ export default interface ProductData {
   name: string;
   price: number;
   slug: any;
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
 }
