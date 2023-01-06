@@ -35,7 +35,7 @@ a {
   font-size: 29px;
   font-weight: 600;
   margin: 60px 0px;
-  color: #f02d34;
+  color: #ff5252;
 }
 .marquee {
   position: relative;
@@ -64,7 +64,7 @@ a {
 }
 
 span.text-red {
-  -webkit-text-stroke: 1px #f02d34;
+  -webkit-text-stroke: 1px #ff5252;
   margin-left: 6px;
 }
 .logo {
@@ -88,7 +88,7 @@ span.text-red {
   right: -8px;
   font-size: 12px;
   color: #eee;
-  background-color: #f02d34;
+  background-color: #ff5252;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -144,7 +144,7 @@ span.text-red {
 .hero-banner-container button {
   border-radius: 15px;
   padding: 10px 16px;
-  background-color: #f02d34;
+  background-color: #ff5252;
   color: white;
   border: none;
   margin-top: 40px;
@@ -211,7 +211,7 @@ span.text-red {
 }
 .footer-banner-container {
   padding: 80px 40px;
-  background-color: #f02d34;
+  background-color: #ff5252;
   border-radius: 15px;
   position: relative;
   height: 400px;
@@ -323,7 +323,7 @@ span.text-red {
 }
 .cart-num-items {
   margin-left: 10px;
-  color: #f02d34;
+  color: #ff5252;
 }
 .empty-cart {
   margin: 40px;
@@ -348,10 +348,11 @@ span.text-red {
   padding: 20px;
 }
 .product .cart-product-image {
-  width: 180px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 15px;
   background-color: #ebebeb;
+  object-fit: cover;
 }
 .item-desc .flex {
   display: flex;
@@ -377,7 +378,7 @@ span.text-red {
 }
 .remove-item {
   font-size: 24px;
-  color: #f02d34;
+  color: #ff5252;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -404,7 +405,7 @@ span.text-red {
   margin-top: 10px;
   margin-top: 40px;
   text-transform: uppercase;
-  background-color: #f02d34;
+  background-color: #ff5252;
   color: #fff;
   cursor: pointer;
   transform: scale(1, 1);
@@ -425,13 +426,13 @@ span.text-red {
   border-radius: 15px;
   background-color: #ebebeb;
 
-  width: 400px;
+  width: 450px;
   height: 400px;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  object-fit: cover;
 }
 .product-detail-image:hover {
-  background-color: #f02d34;
+  border: 2px solid #ff5252;
 }
 .small-images-container {
   display: flex;
@@ -444,13 +445,14 @@ span.text-red {
   width: 70px;
   height: 70px;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .selected-image {
-  background-color: #f02d34;
+  border: 3px solid #ff5252;
 }
 .reviews {
-  color: #f02d34;
+  color: #ff5252;
   margin-top: 10px;
   display: flex;
   gap: 5px;
@@ -471,7 +473,7 @@ span.text-red {
   font-weight: 700;
   font-size: 26px;
   margin-top: 30px;
-  color: #f02d34;
+  color: #ff5252;
 }
 .price .old-price,
 .product-price .old-price,
@@ -491,12 +493,12 @@ span.text-red {
 }
 .buttons .add-to-cart {
   padding: 10px 20px;
-  border: 1px solid #f02d34;
+  border: 1px solid #ff5252;
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   background-color: white;
-  color: #f02d34;
+  color: #ff5252;
   cursor: pointer;
   width: 200px;
   transform: scale(1, 1);
@@ -509,7 +511,7 @@ span.text-red {
   width: 200px;
 
   padding: 10px 20px;
-  background-color: #f02d34;
+  background-color: #ff5252;
   color: white;
   border: none;
   margin-top: 40px;
@@ -533,7 +535,7 @@ span.text-red {
 }
 .quantity-desc .minus {
   border-right: 1px solid gray;
-  color: #f02d34;
+  color: #ff5252;
 }
 .quantity-desc .num {
   border-right: 1px solid gray;
@@ -561,7 +563,7 @@ span.text-red {
 }
 .max-qty {
   font-weight: 500;
-  color: #f02d34;
+  color: #ff5252;
 }
 .success-wrapper,
 .cancel-wrapper {
@@ -611,7 +613,7 @@ span.text-red {
 }
 .success .description .email {
   margin-left: 5px;
-  color: #f02d34;
+  color: #ff5252;
 }
 .product-max-qty {
   margin-top: 10px;
