@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useRef } from "react";
+import { toast } from "react-hot-toast";
 import {
   AiOutlineLeft,
   AiOutlineMinus,
@@ -9,6 +10,7 @@ import {
 import { TiDeleteOutline } from "react-icons/ti";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
+import getStripe from "../lib/getStripe";
 import ProductData from "../types/Product";
 
 const Cart = () => {
@@ -21,6 +23,26 @@ const Cart = () => {
     toggleCartItemQty,
     removeFromCart,
   }: any = useStateContext();
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch("/api/stripe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({cartItems}),
+    });
+
+    if (response.status === 500) return;
+
+    const data = await response.json();
+    console.log("STRIPE API POST REquest;:", data);
+    toast.loading("Redirecting...");
+
+    data && stripe.redirectToCheckout({sessionId: data.id});
+  }
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -102,7 +124,7 @@ const Cart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button className="btn" type="button">
+              <button className="btn" type="button" onClick={handleCheckout}>
                 Checkout
               </button>
             </div>
