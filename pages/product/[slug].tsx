@@ -15,11 +15,16 @@ const ProductDetail = ({
 }: any) => {
   const { name, image, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { incQty, decQty, qty, setQty, checkInCart, addToCart }: any = useStateContext();
+  const { incQty, decQty, qty, setQty, setShowCart, checkInCart, addToCart }: any = useStateContext();
 
   useEffect(() => {
     setQty(1);
-  }, [setQty, name])
+  }, [setQty, name]);
+
+  const handleBuyNow = () => {
+    addToCart(product, qty);
+    setShowCart(true);
+  }
 
   return (
     <div>
@@ -76,7 +81,7 @@ const ProductDetail = ({
           </div>
 
           <div className="buttons">
-            {checkInCart ? (
+            {!checkInCart(product) ? (
               <button type="button" className="add-to-cart" onClick={() => addToCart(product, qty)}>
                 Add To Cart
               </button>
@@ -85,7 +90,7 @@ const ProductDetail = ({
                 In Cart
               </button>
             )}
-            <button type="button" className="buy-now">
+            <button type="button" className="buy-now" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>
