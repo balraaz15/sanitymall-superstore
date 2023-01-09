@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import ProductData from "../types/Product";
 
@@ -14,6 +14,22 @@ export const StateContext = ({ children }: any) => {
   let foundProduct: any;
   let index;
 
+  useEffect(() => {
+    const ls_cart = localStorage.getItem("cartItems");
+
+    if (ls_cart) {
+      setCartItems(JSON.parse(ls_cart));
+      let quantity: number = 0;
+      let price: number = 0;
+      JSON.parse(ls_cart).map((item: any) => {
+        quantity += item.quantity;
+        price += item.price;
+      });
+      setTotalPrice(price);
+      setTotalQuantities(quantity);
+    }
+  }, []);
+
   const checkInCart = (product: ProductData) => {
     const cartCheck: any = cartItems?.find(
       (item: ProductData) => item?._id === product?._id
@@ -28,13 +44,16 @@ export const StateContext = ({ children }: any) => {
     setTotalPrice((total) => total + product?.price * quantity);
     setTotalQuantities((prevQty) => prevQty + quantity);
 
-    setCartItems([...cartItems, { ...product, quantity }]);
+    const newCartItems = [...cartItems, { ...product, quantity }];
+    setCartItems(newCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
     toast.success(`${quantity} ${product.name} successfully added to cart`);
   };
 
   const removeFromCart = (product: any) => {
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
     setCartItems(newCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(newCartItems));
 
     setTotalPrice((prevPrice) => prevPrice - product.price * product.quantity);
     setTotalQuantities((prevQty) => prevQty - product.quantity);
