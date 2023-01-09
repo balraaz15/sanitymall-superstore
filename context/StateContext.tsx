@@ -18,11 +18,13 @@ export const StateContext = ({ children }: any) => {
     const cartCheck: any = cartItems?.find(
       (item: ProductData) => item?._id === product?._id
     );
-    if (cartCheck.length >= 1) return true;
+    if (cartCheck) return true;
     return false;
   };
 
   const addToCart = (product: any, quantity: number) => {
+    if (checkInCart(product) === true) return;
+
     setTotalPrice((total) => total + product?.price * quantity);
     setTotalQuantities((prevQty) => prevQty + quantity);
 
