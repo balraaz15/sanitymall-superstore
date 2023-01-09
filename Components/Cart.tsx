@@ -45,7 +45,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper" ref={cartRef as any}>
       <div className="cart-container">
         <button
           type="button"
